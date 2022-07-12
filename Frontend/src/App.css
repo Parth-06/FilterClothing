@@ -875,8 +875,6 @@ body {
     body {
         -ms-overflow-style: none;
         scrollbar-width: none;
-        position: fixed;
-
     }
 
     body::-webkit-scrollbar {
@@ -986,7 +984,7 @@ body {
 
     .card {
         height: 20rem;
-        width: 11rem;
+        width: 10rem;
         margin: 7px 2px;
         /* border: 1px solid; */
         z-index: 4;
@@ -1004,7 +1002,7 @@ body {
 
     .card_image {
         height: 11.5rem;
-        width: 10rem;
+        width: 9rem;
         margin-top: 10px;
         margin-left: 10px;
         margin-right: 10px;

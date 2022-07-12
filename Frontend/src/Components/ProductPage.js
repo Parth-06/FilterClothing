@@ -102,7 +102,7 @@ const addedCart = async() =>{
         images={images}
         showBullets={true}
         showNavs={false}
-        style={{zIndex:"-1"}}/>
+        style={{zIndex:"1"}}/>
  </div>
 
         <div className="product_detail">
