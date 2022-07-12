@@ -21,8 +21,6 @@ const Routing = ()=>{
 return(
   <CartapiProvider>
   <Header/>
-  
-<Suspense fallback={<div style={{width:"100%" ,height:"100vh", display:"flex", justifyContent:"center", alignItems:"center"}}><Spinner/></div>}>
 <Routes>
   <Route path="/" element={<Home/>}/>
   <Route path="/login" element={<Login/>}/>
@@ -35,7 +33,6 @@ return(
   <Route path="/kids" element={<Kids/>}/>
   <Route path="/profile" element={<Profile/>}/>
   </Routes>
-</Suspense>
  </CartapiProvider>
 )
 

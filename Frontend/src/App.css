@@ -892,7 +892,7 @@ body {
     .mobile_header {
         display: flex;
         width: 100vw;
-        height: 3rem;
+        height: 3.5rem;
         justify-content: space-evenly;
         align-items: center;
     }
@@ -906,9 +906,9 @@ body {
     }
 
     .fa-bars {
-        font-size: 23px;
-        margin-right: 10px;
-        margin-left: 10px;
+        font-size: 27px;
+        margin-right: 12px;
+        margin-left: 12px;
         cursor: pointer;
     }
 
@@ -939,7 +939,7 @@ body {
     .fa-shopping-bag {
         font-size: 25px;
         color: rgb(17, 17, 116);
-        margin-left: 1rem;
+        margin-left: 1.5rem;
     }
 
     .cart_num {
@@ -976,37 +976,32 @@ body {
         display: flex;
         height: 100%;
         width: 100%;
-        margin: 7px 2px;
+        margin: -5px 2px;
         flex-wrap: wrap;
         justify-content: space-around;
-        /* border: 1px solid; */
     }
 
     .card {
-        height: 20rem;
-        width: 10rem;
-        margin: 7px 2px;
-        /* border: 1px solid; */
-        z-index: 4;
+        height: 21rem;
+        width: 47vw;
+        margin: 5px 2px;
+        border: 1px solid #eae4e4;
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         overflow: hidden;
+        border-radius: 3px;
     }
 
     .card:hover {
-        border: 1px solid rgb(129, 125, 125);
-        box-shadow: 0 0 2px 2px rgb(129, 125, 125);
-
+        border: 1px solid #eae4e4;
+        box-shadow: 0 0 0px 0px rgb(129, 125, 125);
     }
 
     .card_image {
-        height: 11.5rem;
-        width: 9rem;
-        margin-top: 10px;
-        margin-left: 10px;
-        margin-right: 10px;
-
+        height: 13rem;
+        width: 45vw;
+        margin: auto;
     }
 
     .card img {
@@ -1141,7 +1136,7 @@ body {
     .product_detail {
         margin-top: 10px;
         margin-left: 2px;
-        height: 100vh;
+        height: 100%;
         width: 100vw;
         overflow: scroll; 
          -ms-overflow-style: none;
