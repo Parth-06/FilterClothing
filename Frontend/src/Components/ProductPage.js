@@ -3,24 +3,18 @@ import { useLocation } from 'react-router-dom'
 import { CartState } from '../Context/Context';
 import 'react-toastify/dist/ReactToastify.css';
 import {  toast } from 'react-toastify';
-import SimpleImageSlider from "react-simple-image-slider";
 import { CartVal } from '../Context/Cartapi';
 import { UserContext } from '../App';
 
 
 const ProductPage = () => {
-  const {  dispatch  } = CartState();
+  const {  state:{cart} , dispatch  } = CartState();
   const location = useLocation();
   const { data } = location.state;
   const [selected, setSelected] = useState(data.image)
   const { apidata } = CartVal();
   const {logoutdispatch} = useContext(UserContext)
-  const images = [
-    { url: data.image },
-    { url: data.image1 },
-    { url: data.image2 },
-    { url: data.image3 },
-  ];
+ 
 
   const deletec = async (prodid) => {
 
@@ -45,9 +39,6 @@ const ProductPage = () => {
   }
 
 const addedCart = async() =>{
-  // const navigate = useNavigate()
-
- console.log();
 
       try {
           const res = await fetch("/home", {
@@ -95,15 +86,6 @@ const addedCart = async() =>{
           </div>
         </div>
  
- <div className="image_silder">
- <SimpleImageSlider
-        width={"100vw"}
-        height={"20rem"}
-        images={images}
-        showBullets={true}
-        showNavs={false}
-        style={{zIndex:"1"}}/>
- </div>
 
         <div className="product_detail">
           <h3>{data.name} </h3>
@@ -192,8 +174,21 @@ const addedCart = async() =>{
             </div>
           </div>
           <div className="product_buttons">
-            {
+          {
+              cart.length === 0 ?
              apidata.some(p => p.id === data.id) ? (
+                <button onClick={() => deletec(data.id)
+                  (dispatch({
+                    type: 'REMOVE_FROM_CART',
+                    payload: data,
+                  }))
+                }
+                  type="button" className="Addcart">Remove from Cart</button>
+              ) : (<button onClick={() => {addedCart()
+              
+              }} type="button" disabled={!data.inStock} className="Addcart"> {!data.inStock ? "out of stock" : "Add to Bag"}<i style={{color:"black"}}className="fas fa-shopping-bag" >  </i></button>)
+              : 
+              cart.some(p => p.id === data.id) ? (
                 <button onClick={() => deletec(data.id)
                   (dispatch({
                     type: 'REMOVE_FROM_CART',

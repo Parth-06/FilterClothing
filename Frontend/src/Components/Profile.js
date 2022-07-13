@@ -6,7 +6,7 @@ import Spinner from './Spinner';
 // import {  toast } from 'react-toastify';
 const Profile = () => {
   const navigate = useNavigate()
-  const [checklog, setChecklog]=useState("");
+  const [checklog, setChecklog]=useState(true);
 
   const {logoutdispatch} = useContext(UserContext)
     useEffect(() => {
@@ -24,7 +24,7 @@ const Profile = () => {
             });
              await res.json();
              logoutdispatch({type:"USER", payload:true})
-            setChecklog("valid")
+            setChecklog(true)
             if (!res.status === 200) {
                 const error = new Error(res.error);
                 throw error;
@@ -45,7 +45,7 @@ const Profile = () => {
 <>
 <Suspense fallback={<div style={{width:"100%" ,height:"100vh", display:"flex", justifyContent:"center", alignItems:"center"}}><Spinner/></div>}>
 {
-  checklog === "valid" ? 
+  checklog === true ? 
   (<div className="profile">
   <Link to="/logout" className='for_link'><button className='Addcart'>Logout</button></Link>
 </div>):
