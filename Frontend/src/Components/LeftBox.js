@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CartState } from '../Context/Context';
 
 
 const LeftBox = () => {
     const{productState:{ byStock, byFastDelivery, sort}, productDispatch} = CartState();
- 
+    const [crating, setcrating] = useState("")
   return (
     
     <div className='left_box' >
@@ -41,37 +41,37 @@ const LeftBox = () => {
                <div className="filter_title_two">
                 <h4>By Customer Review</h4>
                 <div className="radio_box">
-            <div style={{display:"flex", cursor:"pointer"}} onClick={()=>(productDispatch({type: "FILTER_BY_RATING", payload: 4})) } className = "radio_in">
+            <div style={{display:"flex", cursor:"pointer"}} onClick={()=>{(productDispatch({type: "FILTER_BY_RATING", payload: 4}))(setcrating("four"))}} className = "radio_in">
             <i className="fas fa-star"></i>
             <i className="fas fa-star"></i>
             <i className="fas fa-star"></i>
             <i className="fas fa-star"></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
-            <h4> &nbsp;& UP</h4>
+            <h4 style={crating === "black" ? {color:"black"} : crating === "four" ? {color:"orange"} : {color:"black"}}> &nbsp;& UP</h4>
             </div>
-            <div  style={{display:"flex", cursor:"pointer"}} onClick={()=>(productDispatch({type: "FILTER_BY_RATING", payload: 3})) } className = "radio_in">
+            <div  style={{display:"flex", cursor:"pointer"}} onClick={()=>{(productDispatch({type: "FILTER_BY_RATING", payload: 3}))(setcrating("three"))} } className = "radio_in">
             <i className="fas fa-star"></i>
             <i className="fas fa-star"></i>
             <i className="fas fa-star"></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
-            <h4> &nbsp;& UP</h4>
+            <h4 style={crating === "black" ? {color:"black"} : crating === "three" ? {color:"orange"} : {color:"black"}}> &nbsp;& UP</h4>
             </div>
-            <div  style={{display:"flex", cursor:"pointer"}}onClick={()=>(productDispatch({type: "FILTER_BY_RATING", payload: 2})) } className = "radio_in">
+            <div  style={{display:"flex", cursor:"pointer"}} onClick={()=>{(productDispatch({type: "FILTER_BY_RATING", payload: 2}))(setcrating("two"))} }className = "radio_in">
             <i className="fas fa-star"></i>
             <i className="fas fa-star"></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
-            <h4> &nbsp;& UP</h4>
+            <h4 style={crating === "black" ? {color:"black"} : crating === "two" ? {color:"orange"} : {color:"black"}}> &nbsp;& UP</h4>
             </div>
-            <div style={{display:"flex",cursor:"pointer"}}onClick={()=>(productDispatch({type: "FILTER_BY_RATING", payload: 1})) } className = "radio_in">
+            <div style={{display:"flex",cursor:"pointer"}} onClick={()=>{(productDispatch({type: "FILTER_BY_RATING", payload: 1}))(setcrating("one"))} } className = "radio_in">
             <i className="fas fa-star"></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
-            <h4 > &nbsp;& UP</h4>
+            <h4 style={crating === "black" ? {color:"black"} : crating === "one" ? {color:"orange"} : {color:"black"}}> &nbsp;& UP</h4>
 
 </div>
             </div>

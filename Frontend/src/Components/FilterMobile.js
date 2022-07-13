@@ -4,14 +4,11 @@ import { CartState } from '../Context/Context';
 
 const FilterMobile = () => {
     const{productState:{ byStock, byFastDelivery, sort}, productDispatch} = CartState();
- 
+    const [crating, setcrating] = useState("")
   return (
     
     <div className='left_box_mobile' >
-            {/* <div className="filter_title">
-                <h4>FILTERS</h4>
-                <div className="clear" onClick={()=>(productDispatch({type: "CLEAR_FILTERS"}))}>Clear All</div>
-            </div> */}
+           
           
             <div className="filter_title_two">
                 <h4>By PRICE</h4>
@@ -43,37 +40,37 @@ const FilterMobile = () => {
                <div className="filter_title_two">
                 <h4>By Customer Review</h4>
                 <div className="radio_box">
-            <div style={{display:"flex", cursor:"pointer"}} onClick={()=>(productDispatch({type: "FILTER_BY_RATING", payload: 4})) } className = "radio_in">
+            <div style={{display:"flex", cursor:"pointer"}} onClick={()=>{(productDispatch({type: "FILTER_BY_RATING", payload: 4}))(setcrating("four"))}} className = "radio_in">
             <i className="fas fa-star"></i>
             <i className="fas fa-star"></i>
             <i className="fas fa-star"></i>
             <i className="fas fa-star"></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
-            <h4> &nbsp;& UP</h4>
+            <h4 style={crating === "black" ? {color:"black"} : crating === "four" ? {color:"orange"} : {color:"black"}}> &nbsp;& UP</h4>
             </div>
-            <div  style={{display:"flex", cursor:"pointer"}} onClick={()=>(productDispatch({type: "FILTER_BY_RATING", payload: 3})) } className = "radio_in">
+            <div  style={{display:"flex", cursor:"pointer"}} onClick={()=>{(productDispatch({type: "FILTER_BY_RATING", payload: 3}))(setcrating("three"))} } className = "radio_in">
             <i className="fas fa-star"></i>
             <i className="fas fa-star"></i>
             <i className="fas fa-star"></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
-            <h4> &nbsp;& UP</h4>
+            <h4 style={crating === "black" ? {color:"black"} : crating === "three" ? {color:"orange"} : {color:"black"}}> &nbsp;& UP</h4>
             </div>
-            <div  style={{display:"flex", cursor:"pointer"}}onClick={()=>(productDispatch({type: "FILTER_BY_RATING", payload: 2})) } className = "radio_in">
+            <div  style={{display:"flex", cursor:"pointer"}} onClick={()=>{(productDispatch({type: "FILTER_BY_RATING", payload: 2}))(setcrating("two"))} }className = "radio_in">
             <i className="fas fa-star"></i>
             <i className="fas fa-star"></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
-            <h4> &nbsp;& UP</h4>
+            <h4 style={crating === "black" ? {color:"black"} : crating === "two" ? {color:"orange"} : {color:"black"}}> &nbsp;& UP</h4>
             </div>
-            <div style={{display:"flex",cursor:"pointer"}}onClick={()=>(productDispatch({type: "FILTER_BY_RATING", payload: 1})) } className = "radio_in">
+            <div style={{display:"flex",cursor:"pointer"}} onClick={()=>{(productDispatch({type: "FILTER_BY_RATING", payload: 1}))(setcrating("one"))} } className = "radio_in">
             <i className="fas fa-star"></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
             <i className="fas fa-star" style={{color: "silver"}}></i>
-            <h4 > &nbsp;& UP</h4>
+            <h4 style={crating === "black" ? {color:"black"} : crating === "one" ? {color:"orange"} : {color:"black"}}> &nbsp;& UP</h4>
 
 </div>
             </div>

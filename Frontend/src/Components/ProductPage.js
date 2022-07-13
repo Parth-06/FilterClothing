@@ -6,8 +6,7 @@ import {  toast } from 'react-toastify';
 import { CartVal } from '../Context/Cartapi';
 import { UserContext } from '../App';
 
-
-const ProductPage = () => {
+  const ProductPage = () => {
   const {  state:{cart} , dispatch  } = CartState();
   const location = useLocation();
   const { data } = location.state;
@@ -64,8 +63,7 @@ const addedCart = async() =>{
           }
       } catch (err) {
           console.log(err);
-          toast.error("Please Login For Better Experience")
-          // navigate("/login");      
+          toast.error("Please Login For Better Experience")     
       }
   
 }

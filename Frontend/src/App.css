@@ -1857,7 +1857,7 @@ body {
     /* z-index: 1; */
     position: fixed;
     width: 100vw;
-    height: 45vh;
+    height: 50vh;
     left: 0;
     display: flex;
     background-color: white;
@@ -1867,7 +1867,7 @@ body {
     align-items: flex-start;
     display: flex;
     flex-wrap: wrap;
-    height: 44vh;
+    height: 50vh;
     padding-top: 0.5rem;
     z-index: 1;
 }
@@ -1905,9 +1905,9 @@ body {
     display: flex;
 flex-direction: column;
 margin-left: 1rem;
-font-size: 15px;
+font-size: 17px;
 flex-wrap: wrap;
-width: 41vw;
+width: 50vw;
 margin-top: 0rem;
 margin-bottom: 0rem;
 }

@@ -14,6 +14,7 @@ const Header = () => {
   }
   const hidesidebar = () =>{
     setsidebar(false)
+    productDispatch({type: "CLEAR_FILTERS"})
 }
       
      return (
@@ -23,11 +24,11 @@ const Header = () => {
             <div className="right_items">
                 <Link  onClick={()=>(productDispatch({type: "CLEAR_FILTERS"}))}to="/" className='for_link' style={{color: "orange"}}>  <span className='logo' >  <h1>FilterClothing</h1> </span></Link>
 
-                <Link to="/men" className='for_link'>
+                <Link onClick={()=>(productDispatch({type: "CLEAR_FILTERS"}))}to="/men" className='for_link'>
                  <li>Men</li></Link>
 
-                 <Link to="/women" className='for_link'><li>Women</li></Link>
-                 <Link to="/kids" className='for_link'> <li>Kids</li></Link>
+                 <Link onClick={()=>(productDispatch({type: "CLEAR_FILTERS"}))}to="/women" className='for_link'><li>Women</li></Link>
+                 <Link onClick={()=>(productDispatch({type: "CLEAR_FILTERS"}))}to="/kids" className='for_link'> <li>Kids</li></Link>
             </div>
             <div className="left_items">
                 <div className="search_section">
@@ -38,10 +39,10 @@ const Header = () => {
                 </div>
                 <div className='routes'>
 
-                    <Link to="/profile"> <i className="fas fa-user-alt"></i></Link>
+                    <Link onClick={()=>(productDispatch({type: "CLEAR_FILTERS"}))}to="/profile"> <i className="fas fa-user-alt"></i></Link>
                     
-                    <Link to="/cart" style={{textDecoration: "none", listStyleType: "none"}} state={{data: apidata}}> <i className="fas fa-shopping-bag" >  </i></Link>
-                    <Link to="/cart" style={{textDecoration: "none", listStyleType: "none"}} state={{data: apidata}}> 
+                    <Link to="/cart" onClick={()=>(productDispatch({type: "CLEAR_FILTERS"}))}style={{textDecoration: "none", listStyleType: "none"}} state={{data: apidata}}> <i className="fas fa-shopping-bag" >  </i></Link>
+                    <Link to="/cart" onClick={()=>(productDispatch({type: "CLEAR_FILTERS"}))}style={{textDecoration: "none", listStyleType: "none"}} state={{data: apidata}}> 
                     <div className="cart_num"> {apidata.length}</div></Link>
                 </div>
 
