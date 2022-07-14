@@ -4,13 +4,13 @@ import { CartState } from '../Context/Context';
 
 const LeftBox = () => {
     const{productState:{ byStock, byFastDelivery, sort}, productDispatch} = CartState();
-    const [crating, setcrating] = useState("")
+    const [crating, setcrating] = useState("black")
   return (
     
     <div className='left_box' >
             <div className="filter_title">
                 <h4>FILTERS</h4>
-                <div className="clear" onClick={()=>(productDispatch({type: "CLEAR_FILTERS"}))}>Clear All</div>
+                <div className="clear" onClick={()=>{(productDispatch({type: "CLEAR_FILTERS"}))(setcrating("black"))}}>Clear All</div>
             </div>
           
             <div className="border_two">
