@@ -1,57 +1,45 @@
 import React, { useContext, useState, useEffect, createContext } from "react";
-import Pusher from "pusher-js"
+import Pusher from "pusher-js";
 
 const Cartapi = createContext();
 
-const CartapiProvider = ({children}) =>{
-const [apidata, setApidata] = useState([]);
+const CartapiProvider = ({ children }) => {
+  const [apidata, setApidata] = useState([]);
+  const [newData, setnewData] = useState([]);
 
-// useEffect(()=>{
-//   const pusher = new Pusher('bfad7d924b358ce37229', {
-//     cluster: 'ap2'
-//   });
+  useEffect(() => {
+    const Fetchcart = async () => {
+      const res = await fetch("/cartdata", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-  
-//   const channel = pusher.subscribe('maintweets');
-//   channel.bind('inserted', (data) =>{
-//     if(data){
-//       console.log(data);
-//       setnewData(data)
-//     }
-  
-//   })
-// },[])
-
-useEffect(()=>{
-    const Fetchcart =async () =>{ 
-
-        const res = await fetch('/cartdata',{
-          method: "GET",
-          headers:{
-            "Content-Type" : "application/json"
-          },
-        });
-      
-        var cartdata = await res.json();
-        setApidata(cartdata)
-        
-      }
+      var cartdata = await res.json();
+      setApidata(cartdata);
+    };
     Fetchcart();
-  
-})
+  }, [newData]);
 
+  useEffect(() => {
+    const pusher = new Pusher("aed0814fdeed2c64933c", {
+      cluster: "ap2",
+    });
 
-return(
-    <Cartapi.Provider value={{apidata}}>
-        {children}
-    </Cartapi.Provider>
-    )
+    const channelmain = pusher.subscribe("updatesomthing");
+    channelmain.bind("updated", (dataa) => {
+      if (dataa) {
+        console.log(dataa);
+        setnewData(dataa);
+      }
+    });
+  }, []);
 
-}   
+  return <Cartapi.Provider value={{ apidata }}>{children}</Cartapi.Provider>;
+};
 
 export default CartapiProvider;
-export const CartVal = () =>{
-    return useContext(Cartapi)
-}
-
-
+export const CartVal = () => {
+  return useContext(Cartapi);
+};
