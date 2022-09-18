@@ -69,8 +69,7 @@ const [user , setUser] = useState({name:"", email:"",password:"", cpassword:""})
         <button className='regi_button_main' onClick={postData}> Register</button>
         <button className='regi_button_main' style={{border: "4px solid rgb(30, 13, 109)"}}  onClick={()=>{navigate("/login")}}> Already Registered? Login</button>
         </div>
-    
-  
+
 </div>
 </div>
 </>

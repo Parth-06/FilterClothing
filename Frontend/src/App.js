@@ -2,7 +2,6 @@ import React, { createContext, Suspense, useEffect, useReducer } from 'react';
 import './App.css';
 import { Routes, Route, useLocation, useNavigate} from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
-import Spinner from './Components/Spinner';
 import CartapiProvider from './Context/Cartapi';
 import Men from './Components/Men';
 import Women from './Components/Women';
@@ -35,8 +34,6 @@ return(
   </Routes>
  </CartapiProvider>
 )
-
-
 } 
 
 
