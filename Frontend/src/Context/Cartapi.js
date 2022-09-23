@@ -30,13 +30,14 @@ const CartapiProvider = ({ children }) => {
     const channelmain = pusher.subscribe("updatesomthing");
     channelmain.bind("updated", (dataa) => {
       if (dataa) {
-        console.log(dataa);
         setnewData(dataa);
       }
     });
   }, []);
 
-  return <Cartapi.Provider value={{ apidata }}>{children}</Cartapi.Provider>;
+  return (
+    <Cartapi.Provider value={{ apidata, newData }}>{children}</Cartapi.Provider>
+  );
 };
 
 export default CartapiProvider;

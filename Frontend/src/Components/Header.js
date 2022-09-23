@@ -1,12 +1,27 @@
-import React, { memo, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CartState } from "../Context/Context";
 import { CartVal } from "../Context/Cartapi";
 
 const Header = () => {
-  const { apidata } = CartVal();
+  const { newData } = CartVal();
   const { productDispatch } = CartState();
   const [sidebar, setsidebar] = useState(false);
+  const [apidata, setApidata] = useState([]);
+  useEffect(() => {
+    const Fetchcart = async () => {
+      const res = await fetch("/cartdata", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      var cartdata = await res.json();
+      setApidata(cartdata);
+    };
+    Fetchcart();
+  }, [newData]);
 
   const showSidebar = () => {
     setsidebar(!sidebar);
@@ -234,7 +249,7 @@ const Header = () => {
             <input
               type="text"
               className="search_bar1"
-              placeholder="Search Here for Products, Toys, etc. "
+              placeholder="Search Here for Clothes & More. "
             />
           </li>
           <i className="fas fa-search fa-lg"></i>
